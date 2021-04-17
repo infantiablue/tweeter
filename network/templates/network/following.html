@@ -1,0 +1,12 @@
+{% extends "network/layout.html" %} {% load static %} {% block script %}
+<script src="{% static 'public/like.js' %}"></script>
+{% endblock %} {% block body %}
+<h2>Posts from followed users</h2>
+
+<!-- Individual Post -->
+{% include "network/widgets/post.html" %}
+<!-- End Individual Post -->
+<!-- Pagination-->
+{% include "network/widgets/pagination.html" %}
+<!-- End Pagination -->
+{% endblock %}

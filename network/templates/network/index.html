@@ -1,0 +1,31 @@
+{% extends "network/layout.html" %} {% load static %} {% block script %}
+<script src="{% static 'public/index.js' %}"></script>
+<script src="{% static 'public/like.js' %}"></script>
+<script src="{% static 'public/edit.js' %}"></script>
+<script src="{% static 'public/comment.js' %}"></script>
+
+{% endblock %} {% block body %}
+<div id="root"></div>
+<h2>All Posts</h2>
+<!-- New Post Form-->
+{% if user.is_authenticated %}
+<div class="border rounded p-2 media">
+	<img id="form-avatar" src="/media/{{ user.avatar }}" width="64" height="64" class="mr-3 rounded-circle img-fluid" alt="Avatar" />
+	<div class="form-group media-body">
+		<h5>New Post</h5>
+		<form action="{% url 'new_post' %}" method="POST" method="post">
+			{% csrf_token %} {{ form }}
+			<input class="btn btn-primary mt-1" value="Post" type="submit" />
+		</form>
+		<div id="word-counter" class="text-muted text-right">0 word</div>
+	</div>
+</div>
+{% endif %}
+<!-- End New Post -->
+<!-- List Post -->
+{% include "network/widgets/post.html" %}
+<!-- End List Post -->
+<!-- Pagination -->
+{% include "network/widgets/pagination.html" %}
+<!-- End Pagination -->
+{% endblock %}

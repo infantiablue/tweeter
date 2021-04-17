@@ -1,0 +1,17 @@
+{% extends "network/layout.html" %} {% load static %} {% block script %}
+<script>
+	document.querySelector("#file-browser").addEventListener("change", (event) => {
+		document.querySelector("#file-browser-label").innerHTML = event.target.value.replace(/.*[\/\\]/, "");
+	});
+</script>
+{% endblock %} {% block body %}
+<h2>Account</h2>
+<div class="row">
+	<div class="col-sm-12 col-lg-6">
+		<form action="{% url 'account' %}" method="POST" enctype="multipart/form-data" method="post" class="form-group">
+			{% csrf_token %} {{ form }}
+			<input class="btn btn-primary" type="submit" />
+		</form>
+	</div>
+</div>
+{% endblock %}

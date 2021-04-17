@@ -1,0 +1,22 @@
+{% extends "network/layout.html" %} {% load static %} {% block script %}
+<script src="{% static 'public/like.js' %}"></script>
+<script src="{% static 'public/follow.js' %}"></script>
+<script src="{% static 'public/edit.js' %}"></script>
+{% endblock %} {% block body %}
+<h2>{{ profile.username }}'s Profile</h2>
+<div
+	id="follow-container"
+	class="my-3"
+	data-isfollowed="{{ followed_by_current_user}}"
+	data-target="{{ profile.id }}"
+	data-followers="{{ num_followers }}"
+	data-following="{{ num_following }}"
+></div>
+{% csrf_token %}
+<!-- Individual Post -->
+{% include "network/widgets/post.html" %}
+<!-- End Individual Post -->
+<!-- Pagination-->
+{% include "network/widgets/pagination.html" %}
+<!-- End Pagination -->
+{% endblock %}

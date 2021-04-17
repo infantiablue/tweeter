@@ -1,0 +1,67 @@
+textarea {
+	border: 1px solid #888;
+}
+
+.alert-error {
+	background-color: #dc3545;
+	color: white;
+}
+
+.like-btn:hover {
+	cursor: pointer;
+}
+
+.bi-heart-fill {
+	color: red;
+}
+
+.bi-heart:hover {
+	color: #dc3545;
+}
+.bi-heart-fill:hover {
+	color: black;
+}
+
+.notify {
+	position: fixed;
+	top: 5%;
+	left: 40%;
+	width: 20%;
+}
+.edit-btn {
+	padding: 3px;
+	border: #888 1px solid;
+	border-radius: 3px;
+}
+
+a.edit-btn:hover {
+	cursor: pointer;
+	text-decoration: double;
+}
+
+ul.errorlist {
+	padding-left: 0;
+}
+
+.errorlist li {
+	list-style-type: none;
+}
+
+.errorlist li {
+	background-color: indianred;
+	color: white;
+	padding: 5px 5px 5px 10px;
+}
+
+.display-comment-btn {
+	cursor: pointer;
+}
+
+.bi-reply {
+	font-size: 1rem;
+	color: cornflowerblue;
+}
+
+.bi-heart {
+	color: indianred;
+}

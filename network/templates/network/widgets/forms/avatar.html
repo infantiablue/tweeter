@@ -1,0 +1,11 @@
+{% if widget.value.url %}
+<div class="media">
+	<a class="img-thumbnail" target="_blank" href="{{ widget.value.url }}"><img src="{{ widget.value.url }}" /></a>
+</div>
+<br />
+{% endif %} {{ widget.input_text }}:
+<div class="custom-file mb-2 mt-1">
+	<input id="file-browser" type="{{ widget.type }}" class="custom-file-input" name="{{ widget.name }}" />
+	<label id="file-browser-label" class="custom-file-label" for="{{ widget.checkbox_id }}"></label>
+</div>
+<br />
