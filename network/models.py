@@ -25,9 +25,9 @@ def validate_image_size():
         if image.file.size > 2 * 1024 * 1024:
             raise ValidationError(
                 'Image size is larger than what is allowed (2048 KBs)')
-        if fw < 256 or fh < 256:
+        if fw < 128 or fh < 128:
             raise ValidationError(
-                'Height or Width is smaller than what is allowed (512x512)')
+                'Height or Width is smaller than what is allowed (128x128)')
         if fw > 1920 or fh > 1920:
             raise ValidationError(
                 'Height or Width is larger than what is allowed (1920x1920)')
@@ -42,7 +42,7 @@ def user_directory_path(instance, filename):
 
 class User(AbstractUser):
     avatar = models.ImageField(
-        upload_to=user_directory_path, default='avatar.jpg', validators=[validate_image_size])
+        upload_to=user_directory_path, default='avatar.jpg', validators=[validate_image_size()])
     following = models.ManyToManyField('self',
                                        through='Contact',
                                        related_name='followers',
